@@ -1,12 +1,12 @@
 async function updateStatus() {
-    const ip = "play.reachmc.fun:25574";
+    // Using the raw numerical IP to bypass any DNS blocks
+    const ip = "5.175.137.121:25574";
     
     const dots = document.querySelectorAll('#status-dot, #status-dot-page');
     const texts = document.querySelectorAll('#server-status, #server-status-page');
     const counts = document.querySelectorAll('#player-count, #player-count-page');
 
     try {
-        // Using the v2 mcstatus.io API (Best for GitHub Pages)
         const response = await fetch(`https://api.mcstatus.io/v2/status/java/${ip}`);
         const data = await response.json();
 
@@ -36,6 +36,7 @@ function setOffline(dots, texts, counts) {
 }
 
 function copyIP() {
+    // Keeps giving players the nice domain name to copy!
     navigator.clipboard.writeText("play.reachmc.fun");
     alert("IP: play.reachmc.fun copied!");
 }
