@@ -6,48 +6,41 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- MASTER NAVBAR -->
     <nav class="navbar">
         <a href="index.html" class="logo">REACH<span>MC</span></a>
         <div class="nav-links">
-            <a href="index.html">Home</a><a href="features.html">Features</a><a href="join.html">Join</a><a href="status.html">Status</a><a href="store.html">Store</a><a href="discord.html">Discord</a>
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="join.html">Join</a>
+            <a href="status.html">Status</a>
+            <a href="store.html">Store</a>
+            <a href="discord.html">Discord</a>
         </div>
     </nav>
 
     <section class="discord-container">
         <h2 class="page-title">Live <span style="color:#a020f0">Status</span></h2>
-        <div class="discord-card" style="padding: 40px;">
-            <div class="status-box" style="transform: scale(1.5); margin: 30px auto;">
+        
+        <div class="discord-card" style="padding: 50px;">
+            <h3 style="margin-bottom: 20px; font-size: 1.8rem; letter-spacing: 1px;">play.reachmc.fun</h3>
+            
+            <!-- This is where the JS injects the green dot and ONLINE text -->
+            <div class="status-box" style="transform: scale(1.5); margin: 30px auto; border: 1px solid rgba(160, 32, 240, 0.5);">
                 <div class="status-dot" id="status-dot-page"></div>
-                <span id="server-status-page">Checking...</span>
+                <span id="server-status-page">Checking Server...</span>
             </div>
-            <h3 style="margin-top: 20px;">IP: <span style="color: #a020f0;">play.reachmc.fun</span></h3>
-            <p id="player-count-page" style="font-size: 1.2rem; margin-top: 10px;"></p>
+            
+            <!-- This is where the JS injects the Player Count -->
+            <p id="player-count-page" style="font-size: 1.4rem; font-weight: 800; margin-top: 30px; color: #00ff88;"></p>
+            
+            <p style="color: #888; margin-top: 20px; font-size: 0.9rem;">Bedrock / Java Port: 25574</p>
+            
+            <button onclick="copyIP()" class="btn-buy" style="margin-top: 25px; border: none; cursor: pointer;">COPY IP</button>
         </div>
     </section>
 
-    <script>
-        // Specific script just for the status page
-        async function fetchStatusPage() {
-            try {
-                const response = await fetch('https://api.mcsrvstat.us/2/play.reachmc.fun');
-                const data = await response.json();
-                const dot = document.getElementById('status-dot-page');
-                const text = document.getElementById('server-status-page');
-                const count = document.getElementById('player-count-page');
-
-                if(data.online) {
-                    dot.style.background = "#00ff88";
-                    dot.style.boxShadow = "0 0 10px #00ff88";
-                    text.innerText = "ONLINE";
-                    count.innerText = `Currently ${data.players.online} players fighting for survival!`;
-                } else {
-                    text.innerText = "OFFLINE";
-                    dot.style.background = "#ff4b2b";
-                    count.innerText = "Server is currently offline.";
-                }
-            } catch(e) { console.log("Error"); }
-        }
-        fetchStatusPage();
-    </script>
+    <!-- Links to our working Super Script! -->
+    <script src="js/script.js"></script>
 </body>
 </html>
