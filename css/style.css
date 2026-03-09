@@ -125,3 +125,30 @@ body {
 }
 .step-card h3 { color: #a020f0; margin-bottom: 10px; }
 .ip-box { background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; font-family: monospace; color: #00ff88; display: inline-block; margin-top: 10px; }
+/* Custom Toast Notification */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #a020f0;
+    box-shadow: 0px 4px 15px rgba(160, 32, 240, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s;
+}
+
+#toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
