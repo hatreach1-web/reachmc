@@ -152,3 +152,30 @@ body {
     opacity: 1;
     bottom: 50px;
 }
+/* Custom Modern Toast Notification */
+#custom-toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #111;
+    color: #00ff88;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #a020f0;
+    box-shadow: 0px 0px 15px rgba(160, 32, 240, 0.6);
+    opacity: 0;
+    transition: opacity 0.4s, bottom 0.4s;
+}
+
+#custom-toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
