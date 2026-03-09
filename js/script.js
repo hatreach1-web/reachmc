@@ -36,10 +36,31 @@ function setOffline(dots, texts, counts) {
 }
 
 function copyIP() {
-    // Keeps giving players the nice domain name to copy!
+    // 1. Copy the IP to the device
     navigator.clipboard.writeText("play.reachmc.fun");
-    alert("IP: play.reachmc.fun copied!");
+
+    // 2. Remove any old popups just in case they click twice
+    let oldToast = document.getElementById("custom-toast");
+    if (oldToast) oldToast.remove();
+
+    // 3. Create the slick new popup
+    const toast = document.createElement("div");
+    toast.id = "custom-toast";
+    toast.innerText = "✅ IP: play.reachmc.fun Copied!";
+    document.body.appendChild(toast);
+
+    // 4. Slide it up
+    setTimeout(() => {
+        toast.classList.add("show");
+    }, 10); 
+
+    // 5. Fade it out after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 400); 
+    }, 3000);
 }
+
 
 updateStatus();
 setInterval(updateStatus, 60000);
